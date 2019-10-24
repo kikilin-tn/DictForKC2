@@ -1,4 +1,5 @@
 import os
+import time
 if os.path.isfile('output.txt'):
     print('歡迎使用中日對照小工具')
     with open('output.txt', 'r',encoding = 'utf-8') as f:
@@ -23,7 +24,8 @@ while True:
   #print('==========================')
   JP_word = input()
   if JP_word == 'q':
-    print('請關視窗並檢視"output.txt"查看')
+    print('請跳出檢視外部"output.txt"檔案')
+    time.sleep(20)
     break
 
   if JP_word in KC_dic:
