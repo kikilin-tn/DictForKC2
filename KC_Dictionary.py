@@ -1,5 +1,6 @@
 import os
 import time
+
 if os.path.isfile('中日對照小字典.txt'):
     print('歡迎使用中日對照小工具')
     with open('中日對照小字典.txt', 'r',encoding = 'utf-8') as f:
@@ -8,9 +9,9 @@ if os.path.isfile('中日對照小字典.txt'):
             line = line.strip()
             if not len(line):
                 continue
-            result[line.split(':')[0]] = line.split(':')[1]
+            result[line.split(',')[0]] = line.split(',')[1]
 else:
-    print('"中日對照小字典.txt"檔案不在資料夾中，請放置於相同資料夾內')
+   print('"中日對照小字典.txt"檔案不在資料夾中，請放置於相同資料夾內')
 
 KC_dic = result
 print('************************')
@@ -25,7 +26,7 @@ while True:
   JP_word = input()
   if JP_word == 'q':
     print('請跳出檢視外部"中日對照小字典.txt"檔案')
-    time.sleep(4)
+    time.sleep(3)
     break
 
   if JP_word in KC_dic:
@@ -50,7 +51,7 @@ while True:
 
 with open('中日對照小字典.txt','w', encoding='utf-8') as fout:
     for k, v in KC_dic.items():
-        dic = k +':'+ v + '\n'
+        dic = k +','+ v + '\n'
             #print(dic)
         fout.write(dic)
     print(fout)
